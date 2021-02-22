@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="sampleApp" ng-controller="SampleCtrl">
+
+    
+    <div class="section">
+        <h2 class="heading">Sign up manually with your mailId and password...</h2>
+        <label for="email"> Email: </label> &nbsp;&nbsp;&nbsp;&nbsp; <input type="text" ng-model="email" /> 
+        <br>
+        <label for="email"> Password: </label><input type="text" ng-model="password" />
+        <br>
+      <button class="btn" ng-click="createUser()">Create User</button>     
+      &nbsp;&nbsp;&nbsp;&nbsp; 
+      <button class="btn" ng-click="deleteUser()">Delete User</button>
+
+      <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+      <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+
+    </div>
+
+    <h3 class="heading">Or</h3>
+
+    <div class="section">
+        <h2 class="heading">Login with facebook...</h2>
+      <div ng-hide="firebaseUser">
+        <p>Welcome, please sign in.</p>
+        <button class="btn" ng-click="facebookLogin()">Login Here</button>
+      </div>
+    </div>
+
+    <h3 class="heading">Or</h3>
+
+    <div class="section">
+      <h2 class="heading">Login with Google...</h2>
+    <div ng-hide="firebaseUser">
+      <p>Welcome, please sign in.</p>
+      <button class="btn" ng-click="googleLogin()">Login Here</button>
+    </div>
+  </div>
+  </body>
+</html>
